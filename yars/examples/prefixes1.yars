@@ -1,0 +1,6 @@
+:foaf: <http://xmlns.com/foaf/0.1/>
+(a {value:<http://example.net/me#an>})
+(b {value:"Adam Nowak"})
+(a)-[:foaf:name]->(b)
+(c {value:"male",lang:"en"})
+(a)-[:foaf:gender]->(c)
