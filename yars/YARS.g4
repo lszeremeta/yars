@@ -1,6 +1,7 @@
 /*
  [The "BSD licence"]
  Copyright (c) 2018, Łukasz Szeremeta (@ University of Bialystok, http://www.uwb.edu.pl/)
+ Copyright (c) 2018, Dominik Tomaszuk (@ University of Bialystok, http://www.uwb.edu.pl/)
  All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
@@ -44,7 +45,7 @@ prefix_directive
     ;
 
 prefix
-    : ':' prefix_name? ':'
+    : ':' prefix_name ':'
     ;
 
 prefix_name
