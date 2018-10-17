@@ -22,7 +22,7 @@
 grammar YARS;
 
 yars
-    : statement+
+    : (statement NL+) +
     ;
 
 statement
@@ -31,29 +31,31 @@ statement
     ;
 
 directive
-    : prefix_directive
+    : prefixDirective
     ;
 
 //declaration
-    //: vertex_declaration
-    //| relationship_declaration
+    //: vertexDeclaration
+    //| relationshipDeclaration
 //    ;
 
-prefix_directive
-    //: prefix IRIREF
-    : prefix ' ' IRIREF
+prefixDirective
+   : PNAME_NS IRIREF
+   ;
+
+PNAME_NS
+   : ':' PN_PREFIX ':'
+   ;
+
+/* FROM TURTLE ANTLR GRAMMAR */
+
+PN_PREFIX
+   : PN_CHARS_BASE ((PN_CHARS | '.')* PN_CHARS)?
+   ;
+
+PN_NAME
+    : PN_CHARS_BASE ((PN_CHARS | '.')* PN_CHARS)?
     ;
-
-prefix
-    : ':' prefix_name ':'
-    ;
-
-prefix_name
-    : PN_CHARS_BASE ((PN_CHARS | '.')* PN_CHARS)?   // from TURTLE ANTLR grammar
-    ;
-
-
-// from TURTLE ANTLR grammar //
 
 IRIREF
    : '<' (PN_CHARS | '.' | ':' | '/' | '\\' | '#' | '@' | '%' | '&' | UCHAR)* '>'
@@ -79,4 +81,13 @@ HEX
    : [0-9] | [A-F] | [a-f]
    ;
 
-// from TURTLE ANTLR grammar //
+/* FROM TURTLE ANTLR GRAMMAR */
+
+SPACES
+   : (' ' | '\u000C' )+ -> skip
+   ;
+
+NL
+    : [\r\n]
+    ;
+
