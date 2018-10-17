@@ -53,10 +53,6 @@ PN_PREFIX
    : PN_CHARS_BASE ((PN_CHARS | '.')* PN_CHARS)?
    ;
 
-PN_NAME
-    : PN_CHARS_BASE ((PN_CHARS | '.')* PN_CHARS)?
-    ;
-
 IRIREF
    : '<' (PN_CHARS | '.' | ':' | '/' | '\\' | '#' | '@' | '%' | '&' | UCHAR)* '>'
    ;
