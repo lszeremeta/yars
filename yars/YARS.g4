@@ -79,8 +79,8 @@ HEX
 
 /* FROM TURTLE ANTLR GRAMMAR */
 
-SPACES
-    : (' ' | '\u000C' )+ -> skip
+SP
+    : (' ' | [\t] )+ -> skip
     ;
 
 NL
