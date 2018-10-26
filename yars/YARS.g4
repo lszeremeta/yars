@@ -27,17 +27,17 @@ yars
 
 statement
     : directive
-    //| declaration
+    | declaration
     ;
 
 directive
     : prefixDirective
     ;
 
-//declaration
-    //: vertexDeclaration
+declaration
+    : vertexDeclaration
     //| relationshipDeclaration
-    //;
+    ;
 
 prefixDirective
     : PNAME_NS IRIREF
@@ -45,6 +45,30 @@ prefixDirective
 
 PNAME_NS
     : ':' PN_PREFIX ':'
+    ;
+
+vertexDeclaration
+    : '(' VERTEX_NAME '{' key_value_pair (',' key_value_pair)* '}' ')'
+    ;
+
+VERTEX_NAME
+    : PN_PREFIX
+    ;
+
+key_value_pair
+    : key_name ':' key_value
+    ;
+
+key_name
+    : 'value'
+    | 'lang'
+    | 'datatype'
+    | PN_PREFIX
+    ;
+
+key_value
+    : IRIREF
+    | PN_PREFIX
     ;
 
 /* FROM TURTLE ANTLR GRAMMAR */
