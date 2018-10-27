@@ -4,6 +4,11 @@
  Copyright (c) 2018, Dominik Tomaszuk (@ University of Bialystok, http://www.uwb.edu.pl/)
  All rights reserved.
 
+ Some parts of grammar from Turtle grammar
+ (https://github.com/antlr/grammars-v4/blob/master/turtle/TURTLE.g4)
+ by Alejandro Medrano (@ Universidad Politecnica de Madrid, http://www.upm.es/)
+ distributed under BSD licence.
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions
  are met:
@@ -40,44 +45,44 @@ declaration
     ;
 
 prefixDirective
-    : PNAME_NS IRIREF
+    : PNAME_NS CONTEXT
     ;
 
 PNAME_NS
-    : ':' PN_PREFIX ':'
+    : ':' ALNUM_PLUS ':'
     ;
 
 vertexDeclaration
-    : '(' VERTEX_NAME '{' key_value_pair (',' key_value_pair)* '}' ')'
+    : '(' VERTEX_NAME '{' pair (',' pair)* '}' ')'
     ;
 
 VERTEX_NAME
-    : PN_PREFIX
+    : ALNUM_PLUS
     ;
 
-key_value_pair
-    : key_name ':' key_value
+pair
+    : pair_name ':' pair_value
     ;
 
-key_name
+pair_name
     : 'value'
     | 'lang'
     | 'datatype'
-    | PN_PREFIX
+    | ALNUM_PLUS
     ;
 
-key_value
-    : IRIREF
-    | PN_PREFIX
+pair_value
+    : CONTEXT
+    | ALNUM_PLUS
     ;
 
 /* FROM TURTLE ANTLR GRAMMAR */
 
-PN_PREFIX
+ALNUM_PLUS
     : PN_CHARS_BASE ((PN_CHARS | '.')* PN_CHARS)?
     ;
 
-IRIREF
+CONTEXT
     : '<' (PN_CHARS | '.' | ':' | '/' | '\\' | '#' | '@' | '%' | '&' | UCHAR)* '>'
     ;
 
