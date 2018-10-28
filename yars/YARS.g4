@@ -69,7 +69,7 @@ pair_value_key
     ;
 
 pair_lang_key
-    : 'lang' ':' (literal)
+    : 'lang' ':' literal
     ;
 
 pair_datatype_key
