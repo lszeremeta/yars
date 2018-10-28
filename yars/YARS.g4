@@ -41,7 +41,7 @@ directive
 
 declaration
     : vertexDeclaration
-    //| relationshipDeclaration
+    | relationshipDeclaration
     ;
 
 prefixDirective
@@ -56,6 +56,21 @@ vertexDeclaration
     : '(' VERTEX_NAME '{' pair (',' pair)* '}' ')'
     ;
 
+
+relationshipDeclaration
+    : '(' VERTEX_NAME ')' '-' '[' predicate ']' '->' '(' VERTEX_NAME ')'
+    ;
+
+
+PN_LOCAL
+    : ALNUM_PLUS
+    ;
+
+predicate
+    : (PNAME_NS PN_LOCAL)
+    | (PN_LOCAL '{' pair_iriref_key '}')
+    ;
+    
 VERTEX_NAME
     : ALNUM_PLUS
     ;
@@ -70,6 +85,10 @@ pair_value_key
 
 pair_lang_key
     : 'lang' ':' literal
+    ;
+
+pair_iriref_key
+    : 'iriref' ':' iri
     ;
 
 pair_datatype_key
