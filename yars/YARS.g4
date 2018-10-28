@@ -61,14 +61,23 @@ VERTEX_NAME
     ;
 
 pair
-    : pair_name ':' pair_value
+    : pair_value_key | pair_lang_key | pair_datatype_key | pair_any_key
     ;
 
-pair_name
-    : 'value'
-    | 'lang'
-    | 'datatype'
-    | ALNUM_PLUS
+pair_value_key
+    : 'value' ':' (BlankNode | iri | literal)
+    ;
+
+pair_lang_key
+    : 'lang' ':' (literal)
+    ;
+
+pair_datatype_key
+    : 'datatype' ':' (iri | literal)
+    ;
+
+pair_any_key
+    : ALNUM_PLUS ':' (BlankNode | iri | literal)
     ;
 
 pair_value
@@ -77,6 +86,30 @@ pair_value
     ;
 
 /* FROM TURTLE ANTLR GRAMMAR */
+
+BlankNode
+    : BLANK_NODE_LABEL
+    ;
+
+BLANK_NODE_LABEL
+    : '_:' (PN_CHARS_U | [0-9]) ((PN_CHARS | '.')* PN_CHARS)?
+    ;
+
+iri
+    : CONTEXT
+    ;
+
+literal
+    : rdfLiteral
+    ;
+
+rdfLiteral
+    : STRING_LITERAL_QUOTE
+    ;
+
+STRING_LITERAL_QUOTE
+    : '"' (~ ["\\\r\n] | '\'' | '\\"')* '"'
+    ;
 
 ALNUM_PLUS
     : PN_CHARS_BASE ((PN_CHARS | '.')* PN_CHARS)?
