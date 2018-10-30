@@ -27,7 +27,7 @@
 grammar YARS;
 
 yars
-    : (statement NL+) +
+    : (statement NL+) *
     ;
 
 statement
