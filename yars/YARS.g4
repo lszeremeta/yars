@@ -69,7 +69,7 @@ pn_local
 
 predicate
     : (pname pn_local)
-    | (pn_local '{' pair_iriref_key '}')
+    | (pn_local '{' pair_vocab_key '}')
     ;
     
 vertex_name
@@ -88,8 +88,8 @@ pair_lang_key
     : 'lang' ':' literal
     ;
 
-pair_iriref_key
-    : 'iriref' ':' iri
+pair_vocab_key
+    : 'vocab' ':' iri
     ;
 
 pair_datatype_key
