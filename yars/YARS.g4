@@ -2,6 +2,7 @@
  [The "BSD licence"]
  Copyright (c) 2018, Łukasz Szeremeta (@ University of Bialystok, http://www.uwb.edu.pl/)
  Copyright (c) 2018, Dominik Tomaszuk (@ University of Bialystok, http://www.uwb.edu.pl/)
+ Copyright (c) 2018, Karol Litman
  All rights reserved.
 
  Some parts of grammar from Turtle grammar
@@ -41,37 +42,37 @@ directive
 
 declaration
     : vertexDeclaration
-    | relationshipDeclaration
+    | relationship
     ;
 
 prefixDirective
-    : PNAME_NS CONTEXT
+    : pname CONTEXT
     ;
 
-PNAME_NS
+pname
     : ':' ALNUM_PLUS ':'
     ;
 
 vertexDeclaration
-    : VERTEX_NAME ':' '{' pair (',' pair)* '}'
+    : vertex_name ':' '{' pair (',' pair)* '}'
     ;
 
 
-relationshipDeclaration
-    : '(' VERTEX_NAME ')' '-' '[' predicate ']' '->' '(' VERTEX_NAME ')'
+relationship
+    : '(' vertex_name ')' '-' '[' predicate ']' '->' '(' vertex_name ')'
     ;
 
 
-PN_LOCAL
+pn_local
     : ALNUM_PLUS
     ;
 
 predicate
-    : (PNAME_NS PN_LOCAL)
-    | (PN_LOCAL '{' pair_iriref_key '}')
+    : (pname pn_local)
+    | (pn_local '{' pair_iriref_key '}')
     ;
     
-VERTEX_NAME
+vertex_name
     : ALNUM_PLUS
     ;
 
@@ -167,4 +168,3 @@ SP
 NL
     : [\r\n]
     ;
-
