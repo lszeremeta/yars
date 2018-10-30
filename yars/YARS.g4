@@ -53,7 +53,7 @@ PNAME_NS
     ;
 
 vertexDeclaration
-    : '(' VERTEX_NAME '{' pair (',' pair)* '}' ')'
+    : VERTEX_NAME ':' '{' pair (',' pair)* '}' ')'
     ;
 
 
