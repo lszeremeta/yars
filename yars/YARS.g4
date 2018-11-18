@@ -54,12 +54,12 @@ pname
     ;
 
 vertexDeclaration
-    : vertex_name ':' '{' pair (',' pair)* '}'
+    : vertex_name_declaration ':' '{' pair (',' pair)* '}'
     ;
 
 
 relationship
-    : '(' vertex_name ')' '-' '[' predicate ']' '->' '(' vertex_name ')'
+    : '(' vertex_name_relationship ')' '-' '[' predicate ']' '->' '(' vertex_name_relationship ')'
     ;
 
 
@@ -72,9 +72,14 @@ predicate
     | (pn_local '{' pair_vocab_key '}')
     ;
     
-vertex_name
+vertex_name_declaration
     : ALNUM_PLUS
     ;
+
+  vertex_name_relationship
+    : ALNUM_PLUS
+    | BlankNode
+    ;  
 
 pair
     : pair_value_key | pair_lang_key | pair_datatype_key | pair_any_key
@@ -152,7 +157,7 @@ UCHAR
     ;
 
 PN_CHARS_BASE
-    : 'A' .. 'Z' | 'a' .. 'z' | '\u00C0' .. '\u00D6' | '\u00D8' .. '\u00F6' | '\u00F8' .. '\u02FF' | '\u0370' .. '\u037D' | '\u037F' .. '\u1FFF' | '\u200C' .. '\u200D' | '\u2070' .. '\u218F' | '\u2C00' .. '\u2FEF' | '\u3001' .. '\uD7FF' | '\uF900' .. '\uFDCF' | '\uFDF0' .. '\uFFFD'
+    : 'A' .. 'Z' | 'a' .. 'z' | '0' .. '9' | '\u00C0' .. '\u00D6' | '\u00D8' .. '\u00F6' | '\u00F8' .. '\u02FF' | '\u0370' .. '\u037D' | '\u037F' .. '\u1FFF' | '\u200C' .. '\u200D' | '\u2070' .. '\u218F' | '\u2C00' .. '\u2FEF' | '\u3001' .. '\uD7FF' | '\uF900' .. '\uFDCF' | '\uFDF0' .. '\uFFFD'
     ;
 
 HEX
