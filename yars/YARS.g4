@@ -76,7 +76,7 @@ vertex_name_declaration
     : ALNUM_PLUS
     ;
 
-  vertex_name_relationship
+vertex_name_relationship
     : ALNUM_PLUS
     | BlankNode
     ;  
