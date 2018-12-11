@@ -100,11 +100,6 @@ pair_any_key
     : ALNUM_PLUS ':' (BlankNode | iri | literal)
     ;
 
-pair_value
-    : CONTEXT
-    | ALNUM_PLUS
-    ;
-
 /* FROM TURTLE ANTLR GRAMMAR */
 
 BlankNode
