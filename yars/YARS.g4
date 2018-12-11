@@ -41,7 +41,7 @@ directive
     ;
 
 declaration
-    : vertexDeclaration
+    : nodeDeclaration
     | relationship
     ;
 
@@ -53,13 +53,13 @@ pname
     : ':' ALNUM_PLUS ':'
     ;
 
-vertexDeclaration
-    : vertex_name ':' '{' pair (',' pair)* '}'
+nodeDeclaration
+    : node_name ':' '{' pair (',' pair)* '}'
     ;
 
 
 relationship
-    : '(' vertex_name ')' '-' '[' predicate ']' '->' '(' vertex_name ')'
+    : '(' node_name ')' '-' '[' predicate ']' '->' '(' node_name ')'
     ;
 
 
@@ -72,7 +72,7 @@ predicate
     | (pn_local '{' pair_vocab_key '}')
     ;
     
-vertex_name
+node_name
     : ALNUM_PLUS
     ;
 
