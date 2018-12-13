@@ -1,5 +1,0 @@
-(a {value:<http://example.net/me#an>})
-(b {value:"Adam Nowak"})
-(a)-[http://xmlns.com/foaf/0.1/name]->(b)
-(c {value:"male",lang:"en"})
-(a)-[http://xmlns.com/foaf/0.1/gender]->(c)
