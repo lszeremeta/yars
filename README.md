@@ -1,4 +1,4 @@
-# [YARS](https://www.researchgate.net/profile/Dominik_Tomaszuk/publication/309695477_RDF_Data_in_Property_Graph_Model/links/59ddd535458515f6ef0712d3/RDF-Data-in-Property-Graph-Model.pdf) grammar for [ANTLR v4](https://github.com/antlr/antlr4)
+# YARS grammar for [ANTLR v4](https://github.com/antlr/antlr4)
 
 [![Build Status](https://travis-ci.com/lszeremeta/antlr-yars.svg?token=pTqbek1JAcq4ZAzTmmEy&branch=master)](https://travis-ci.com/lszeremeta/antlr-yars)
 
