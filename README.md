@@ -1,9 +1,9 @@
-# YARS grammar for [ANTLR v4](https://github.com/antlr/antlr4)
+# YARS grammar
 
 [![Build Status](https://travis-ci.com/lszeremeta/antlr-yars.svg?token=pTqbek1JAcq4ZAzTmmEy&branch=master)](https://travis-ci.com/lszeremeta/antlr-yars)
 [![DOI](https://zenodo.org/badge/152309707.svg)](https://zenodo.org/badge/latestdoi/152309707)
 
-This project based on [ANTLR grammars-v4 project](https://github.com/antlr/grammars-v4).
+The YARS-PG grammar is written in [ANTLR4](https://github.com/antlr/antlr4). This project based on [ANTLR grammars-v4 project](https://github.com/antlr/grammars-v4).
 
 ## Testing grammar
 
